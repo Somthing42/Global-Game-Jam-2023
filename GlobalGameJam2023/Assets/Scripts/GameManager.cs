@@ -117,9 +117,9 @@ public class GameManager : MonoBehaviour
     public void MainGameSetup()
     {
         
-        if (SceneManager.GetActiveScene().name == "Main")
+        if (SceneManager.GetActiveScene().name != "Menu")
         {
-            Debug.Log("working!");
+           // Debug.Log("working!");
             Cursor.visible = false;
             Cursor.lockState = CursorLockMode.Locked;
             player = GameObject.FindGameObjectWithTag("Player");
