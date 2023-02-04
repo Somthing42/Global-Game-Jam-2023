@@ -11,7 +11,8 @@ public class Damageable : MonoBehaviour
 
     [SerializeField] GameObject hitEffect;
 
-   
+    public AudioClip hitSound;
+    public AudioClip deathSound;
 
     public float knockbackForce;
     private void Awake()
@@ -22,12 +23,13 @@ public class Damageable : MonoBehaviour
 
     public void TakeDamage(float damage, Vector3 hitPos, Vector3 hitNormal)
     {
-       
-        
+
+        GameObject.FindGameObjectWithTag("Sound").GetComponent<AudioSource>().PlayOneShot(hitSound);
         Instantiate(hitEffect, hitPos, Quaternion.LookRotation(hitNormal));
         currentHealth -= damage;
         if(currentHealth <= 0)
         {
+            GameObject.FindGameObjectWithTag("Sound").GetComponent<AudioSource>().PlayOneShot(deathSound);
             Die();
         }
 

@@ -9,6 +9,9 @@ TagManager:
   - GameOverUI
   - HealthText
   - AmmoText
+  - Sound
+  - healthu
+  - ammou
   layers:
   - Default
   - TransparentFX

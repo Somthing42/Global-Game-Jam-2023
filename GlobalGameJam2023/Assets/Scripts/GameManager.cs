@@ -19,6 +19,13 @@ public class GameManager : MonoBehaviour
    // [HideInInspector]
     public Text ammoText;
 
+    public Text healthUpdate;
+
+    public Text ammoUpdate;
+
+    Color col;
+    public float pickUpTimer1 = 3;
+    public float pickUpTimer2 = 3;
     bool gameStarted;
 
    
@@ -67,6 +74,28 @@ public class GameManager : MonoBehaviour
         {
             gameStarted = true;
         }
+
+        if (healthUpdate.enabled == true)
+        {
+            pickUpTimer1 -= Time.deltaTime;
+            if (pickUpTimer1 <= 0)
+            {
+
+                healthUpdate.enabled = false;
+                pickUpTimer1 = 3;
+            }
+        }
+        if (ammoUpdate.enabled == true)
+        {
+            pickUpTimer2 -= Time.deltaTime;
+            if (pickUpTimer2 <= 0)
+            {
+
+                ammoUpdate.enabled = false;
+                pickUpTimer2 = 3;
+            }
+        }
+
     }
 
     public void quitGame()
@@ -99,8 +128,10 @@ public class GameManager : MonoBehaviour
             gameOverUI.SetActive(false);
             healthText = player.GetComponent<Inventory>().UITexts[0];
             ammoText = player.GetComponent<Inventory>().UITexts[1];
-
+            healthUpdate = GameObject.FindGameObjectWithTag("healthu").GetComponent<Text>();
+            ammoUpdate = GameObject.FindGameObjectWithTag("ammou").GetComponent<Text>();
             healthText.text = "Health: 200";
+
             ammoText.text = "Ammo: 50";
             gameStarted = false;
 
@@ -111,11 +142,16 @@ public class GameManager : MonoBehaviour
     public void UpdateHealth(float cHealth)
     {
         healthText.text = "Health: " + cHealth;
+      //  healthUpdate.enabled = true;
+//healthUpdate.text = "+ " + cHealth;
+        
     }
 
     public void UpdateAmmo(float cAmmo)
     {
         ammoText.text = "Ammo: " + cAmmo;
+       // ammoUpdate.enabled = true;
+       // ammoUpdate.text = "+ " + 5;
     }
 
     public void GameOver()
