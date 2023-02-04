@@ -11,19 +11,29 @@ public class Damageable : MonoBehaviour
 
     [SerializeField] GameObject hitEffect;
 
+   
+
+    public float knockbackForce;
     private void Awake()
     {
         currentHealth = maxHealth;
     }
 
+
     public void TakeDamage(float damage, Vector3 hitPos, Vector3 hitNormal)
     {
-
+       
+        
         Instantiate(hitEffect, hitPos, Quaternion.LookRotation(hitNormal));
         currentHealth -= damage;
         if(currentHealth <= 0)
         {
             Die();
+        }
+
+        if (gameObject.name != "Player")
+        {
+            gameObject.transform.position += transform.forward * Time.deltaTime * knockbackForce;
         }
 
         if (gameObject.tag == "Player")

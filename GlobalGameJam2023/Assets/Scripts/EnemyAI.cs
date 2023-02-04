@@ -22,9 +22,14 @@ public class EnemyAI : MonoBehaviour
     public GameObject projectile;
     public Transform bulletSpawn;
 
+    //attack type
+    public string attackType;
+    public float meleeDamage;
     //states
     public float sightRange, attackRange;
     public bool playerInSightRange, playerInAttackRange;
+
+    public float knockback;
 
     private void Awake()
     {
@@ -86,18 +91,26 @@ public class EnemyAI : MonoBehaviour
 
     private void AttackPlayer()
     {
-        //stops enemy from moving
-        agent.SetDestination(transform.position);
 
-        transform.LookAt(player);
-
-        if (!alreadyAttacked)
+        if (attackType == "Shoot")
         {
-            //attacked code goes here
-            Instantiate(projectile, bulletSpawn.position, Quaternion.identity);
-           
-            alreadyAttacked = true;
-            Invoke(nameof(ResetAttack), timeBetweenAttacks);
+            //stops enemy from moving
+            agent.SetDestination(transform.position);
+
+            transform.LookAt(player);
+
+            if (!alreadyAttacked)
+            {
+                //attacked code goes here
+                Instantiate(projectile, bulletSpawn.position, Quaternion.identity);
+
+                alreadyAttacked = true;
+                Invoke(nameof(ResetAttack), timeBetweenAttacks);
+            }
+        }
+        if(attackType == "Charge")
+        {
+
         }
     }
     private void ResetAttack()
@@ -112,4 +125,22 @@ public class EnemyAI : MonoBehaviour
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(transform.position, sightRange);
     }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+
+        if (collision.gameObject.tag == "Player")
+        {
+            //Debug.Log("i see the player");
+
+            collision.gameObject.GetComponent<Damageable>().TakeDamage(meleeDamage, collision.gameObject.transform.position, collision.gameObject.transform.position);
+
+        }
+
+
+        gameObject.transform.position += transform.forward * Time.deltaTime * knockback;
+
+    }
 }
+
+

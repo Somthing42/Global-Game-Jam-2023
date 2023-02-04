@@ -19,7 +19,7 @@ public class NpcDialogue : MonoBehaviour
 
     public GameObject itemNeededObj;
 
-    private bool npcHelped = false;
+   // private bool npcHelped = false;
 
     private GameObject player;
 
@@ -36,15 +36,51 @@ public class NpcDialogue : MonoBehaviour
         player.GetComponent<PlayerMouseLook>().enabled = false;
         player.GetComponent<PlayerMovement>().enabled = false;
         textBackground.SetActive(true);
-        npcHelp();
+        // npcHelp();
 
         int dialogueLength;
-        
-
-       
 
 
-        if (npcHelped)
+        dialogueLength = npcLines.Length;
+
+        if (dialogueLength > currentLine)
+        {
+            //activates current line
+            npcLines[currentLine].SetActive(true);
+            //if current line is not the first set the prev
+            if (currentLine > 0)
+            {
+                npcLines[lastLine].SetActive(false);
+            }
+
+            currentLine += 1;
+            lastLine += 1;
+            if (gameObject.name == "Girl")
+            {
+                SoundManager.Instance.Play(girlTalk);
+            }
+            else
+            {
+                SoundManager.Instance.Play(gregTalk);
+            }
+        }
+        else
+        {
+            npcLines[lastLine].SetActive(false);
+            currentLine = 0;
+            lastLine = -1;
+            player.GetComponent<PlayerMouseLook>().enabled = true;
+            player.GetComponent<PlayerMovement>().enabled = true;
+            textBackground.SetActive(false);
+           /* if (!itemNeededObj.activeInHierarchy)
+            {
+                itemNeededObj.SetActive(true);
+            }*/
+        }
+    }
+
+
+        /*if (npcHelped)
         {
             dialogueLength = specialLines.Length;
 
@@ -79,48 +115,12 @@ public class NpcDialogue : MonoBehaviour
             }
         }
         else
-        {
-            dialogueLength = npcLines.Length;
-
-            if (dialogueLength > currentLine)
-            {
-                //activates current line
-                npcLines[currentLine].SetActive(true);
-                //if current line is not the first set the prev
-                if (currentLine > 0)
-                {
-                    npcLines[lastLine].SetActive(false);
-                }
-
-                currentLine += 1;
-                lastLine += 1;
-                if (gameObject.name == "Girl")
-                {
-                    SoundManager.Instance.Play(girlTalk);
-                }
-                else
-                {
-                    SoundManager.Instance.Play(gregTalk);
-                }
-            }
-            else
-            {
-                npcLines[lastLine].SetActive(false);
-                currentLine = 0;
-                lastLine = -1;
-                player.GetComponent<PlayerMouseLook>().enabled = true;
-                player.GetComponent<PlayerMovement>().enabled = true;
-                textBackground.SetActive(false);
-                if (!itemNeededObj.activeInHierarchy)
-                {
-                    itemNeededObj.SetActive(true);
-                }
-            }
-        }
+        {*/
+           
         //check which line the npc is on
         
 
-    }
+    
 
     public void npcHelp()
     {
@@ -130,7 +130,7 @@ public class NpcDialogue : MonoBehaviour
             if(player.GetComponent<Inventory>().items.Contains(itemNeeded))
             {
                // Debug.Log("has orb");
-                npcHelped = true;
+               // npcHelped = true;
                //add thing later that this npc has been helped in the game manager
                if (!doOnce)
                {

@@ -52,38 +52,44 @@ public class Gun : MonoBehaviour
 
     public void Shoot()
     {
-        //for animations
-        if (!gameObject.GetComponent<Animator>().GetBool("Fired")){
+        if (CanShoot()){
+            //for animations
+            if (!gameObject.GetComponent<Animator>().GetBool("Fired")) {
 
-            gameObject.GetComponent<Animator>().SetBool("Fired", true);
-            PlayGunShot();
+                gameObject.GetComponent<Animator>().SetBool("Fired", true);
+                PlayGunShot();
 
-            currentAmmo--;
-            GameManager.instance.UpdateAmmo(currentAmmo);
-            //Instantiate(muzzleFlash, muzzleFlashLocation.position, muzzleFlashLocation.rotation);
+                currentAmmo--;
+                GameManager.instance.UpdateAmmo(currentAmmo);
+                //Instantiate(muzzleFlash, muzzleFlashLocation.position, muzzleFlashLocation.rotation);
 
-            
-               gameObject.GetComponent<Animator>().Play("ShotgunRecoil");
-               for (int i = 0; i < bulletsPerShot; i++)
-               {
-                   RaycastHit hit;
-                   Vector3 shootingDir = GettShootingDirection();
-                   if (Physics.Raycast(cam.position, shootingDir, out hit, range))
-                   {
-                       if (hit.collider.GetComponent<Damageable>() != null)
-                       {
-                           hit.collider.GetComponent<Damageable>().TakeDamage(damage, hit.point, hit.normal);
-                       }
-                       // CreateLaser(hit.point);
-                   }
-                   else
-                   {
-                       // CreateLaser(cam.position + shootingDir * range);
-                   }
-               }
-            
-            
-            
+
+                gameObject.GetComponent<Animator>().Play("ShotgunRecoil");
+                for (int i = 0; i < bulletsPerShot; i++)
+                {
+                    RaycastHit hit;
+                    Vector3 shootingDir = GettShootingDirection();
+                    if (Physics.Raycast(cam.position, shootingDir, out hit, range))
+                    {
+                        if (hit.collider.GetComponent<Damageable>() != null)
+                        {
+                            hit.collider.GetComponent<Damageable>().TakeDamage(damage, hit.point, hit.normal);
+                        }
+                        // CreateLaser(hit.point);
+                    }
+                    else
+                    {
+                        // CreateLaser(cam.position + shootingDir * range);
+                    }
+                }
+
+
+
+            }
+        }
+        else
+        {
+            gameObject.GetComponent<AudioSource>().PlayOneShot(gunSounds[2]);
         }
     }
 

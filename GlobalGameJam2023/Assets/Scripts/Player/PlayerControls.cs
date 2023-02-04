@@ -78,8 +78,8 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""id"": ""ede45dfa-55a4-41dd-9cd9-4a86d95e863c"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
+                    ""interactions"": ""Tap"",
+                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
@@ -231,7 +231,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""id"": ""1dcd182a-e82d-4b35-8a0c-617b8ea3756f"",
                     ""path"": ""<Gamepad>/rightStick/x"",
                     ""interactions"": """",
-                    ""processors"": """",
+                    ""processors"": ""Scale(factor=4)"",
                     ""groups"": """",
                     ""action"": ""MouseX"",
                     ""isComposite"": false,
@@ -253,7 +253,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""id"": ""60e6c2eb-aa0a-476a-895f-ba2e3232f8bb"",
                     ""path"": ""<Gamepad>/rightStick/y"",
                     ""interactions"": """",
-                    ""processors"": """",
+                    ""processors"": ""Scale(factor=4)"",
                     ""groups"": """",
                     ""action"": ""MouseY"",
                     ""isComposite"": false,
@@ -285,7 +285,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""name"": """",
                     ""id"": ""15a7cea3-3057-4546-8af2-e727f65cd17e"",
                     ""path"": ""<Keyboard>/e"",
-                    ""interactions"": """",
+                    ""interactions"": ""Tap"",
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Interact"",

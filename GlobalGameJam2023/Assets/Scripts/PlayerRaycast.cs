@@ -51,11 +51,8 @@ public class PlayerRaycast : MonoBehaviour
                 isCrosshairActive = true;
                 doOnce = true;
                 //opens the door
-                if (interacted)
-                {
-                    raycastObj.GetComponent<InteractableAssigner>().ItemFunction();
-                    interacted = false;
-                }
+               
+
             }
         }
 
@@ -89,6 +86,12 @@ public class PlayerRaycast : MonoBehaviour
     {
         Debug.Log("interactable!");
         interacted = true;
+
+        if (interacted && isCrosshairActive)
+        {
+            raycastObj.GetComponent<InteractableAssigner>().ItemFunction();
+            interacted = false;
+        }
     }
 
 }
