@@ -20,7 +20,7 @@ public class ItemPickup : MonoBehaviour
     Color col;
     private void Start()
     {
-        col = IntIncreaseText.color;
+        //col = IntIncreaseText.color;
     }
     public bool pickedUp;
     private void Update()
@@ -35,12 +35,12 @@ public class ItemPickup : MonoBehaviour
             
             GameObject.FindGameObjectWithTag("Sound").GetComponent<AudioSource>().PlayOneShot(pickupSound);
            
-            col.a = 255;
+           /// col.a = 255;
             
             //if pick up is health
             if (isHealth)
             {
-                IntIncreaseText.text = "+" + healthAmount;
+               // IntIncreaseText.text = "+" + healthAmount;
                 //if current health is not at max
                 if (other.gameObject.GetComponent<Damageable>().currentHealth < other.gameObject.GetComponent<Damageable>().maxHealth)
                 {
@@ -62,7 +62,7 @@ public class ItemPickup : MonoBehaviour
             }
             if (isAmmo)
             {
-                IntIncreaseText.text = "+" + ammoAmount;
+                //.text = "+" + ammoAmount;
                 if (GameManager.instance.gun.GetComponent<Gun>().currentAmmo < GameManager.instance.gun.GetComponent<Gun>().maxAmmo)
                 {
                     GameManager.instance.gun.GetComponent<Gun>().currentAmmo += ammoAmount;

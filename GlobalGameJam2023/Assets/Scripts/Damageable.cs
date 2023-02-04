@@ -15,6 +15,7 @@ public class Damageable : MonoBehaviour
     public AudioClip deathSound;
 
     public float knockbackForce;
+
     private void Awake()
     {
         currentHealth = maxHealth;
@@ -23,24 +24,27 @@ public class Damageable : MonoBehaviour
 
     public void TakeDamage(float damage, Vector3 hitPos, Vector3 hitNormal)
     {
-
-        GameObject.FindGameObjectWithTag("Sound").GetComponent<AudioSource>().PlayOneShot(hitSound);
-        Instantiate(hitEffect, hitPos, Quaternion.LookRotation(hitNormal));
-        currentHealth -= damage;
-        if(currentHealth <= 0)
+        if (!isDead)
         {
-            GameObject.FindGameObjectWithTag("Sound").GetComponent<AudioSource>().PlayOneShot(deathSound);
-            Die();
-        }
+            GameObject.FindGameObjectWithTag("Sound").GetComponent<AudioSource>().PlayOneShot(hitSound);
+            Instantiate(hitEffect, hitPos, Quaternion.LookRotation(hitNormal));
+            currentHealth -= damage;
+            if (currentHealth <= 0)
+            {
+                GameObject.FindGameObjectWithTag("Sound").GetComponent<AudioSource>().PlayOneShot(deathSound);
+                Die();
+            }
 
-        if (gameObject.name != "Player")
-        {
-            gameObject.transform.position += transform.forward * Time.deltaTime * knockbackForce;
-        }
+            if (gameObject.name != "Player")
+            {
+                gameObject.transform.position += transform.forward * Time.deltaTime * knockbackForce;
+            }
 
-        if (gameObject.tag == "Player")
-        {
-            GameManager.instance.UpdateHealth(currentHealth);
+            if (gameObject.tag == "Player")
+            {
+                GameManager.instance.UpdateHealth(currentHealth);
+
+            }
         }
 
     }
@@ -50,6 +54,7 @@ public class Damageable : MonoBehaviour
 
         if(gameObject.tag == "Player" && !isDead)
         {
+            isDead = true;
             GameManager.instance.GameOver();
         }
         else

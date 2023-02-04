@@ -19,9 +19,9 @@ public class GameManager : MonoBehaviour
    // [HideInInspector]
     public Text ammoText;
 
-    public Text healthUpdate;
+   // public Text healthUpdate;
 
-    public Text ammoUpdate;
+   // public Text ammoUpdate;
 
     Color col;
     public float pickUpTimer1 = 3;
@@ -75,26 +75,7 @@ public class GameManager : MonoBehaviour
             gameStarted = true;
         }
 
-        if (healthUpdate.enabled == true)
-        {
-            pickUpTimer1 -= Time.deltaTime;
-            if (pickUpTimer1 <= 0)
-            {
 
-                healthUpdate.enabled = false;
-                pickUpTimer1 = 3;
-            }
-        }
-        if (ammoUpdate.enabled == true)
-        {
-            pickUpTimer2 -= Time.deltaTime;
-            if (pickUpTimer2 <= 0)
-            {
-
-                ammoUpdate.enabled = false;
-                pickUpTimer2 = 3;
-            }
-        }
 
     }
 
@@ -114,6 +95,11 @@ public class GameManager : MonoBehaviour
         gameStarted = true;
     }
 
+    public void Level2()
+    {
+        SceneManager.LoadScene(2);
+    }
+
     public void MainGameSetup()
     {
         
@@ -128,8 +114,7 @@ public class GameManager : MonoBehaviour
             gameOverUI.SetActive(false);
             healthText = player.GetComponent<Inventory>().UITexts[0];
             ammoText = player.GetComponent<Inventory>().UITexts[1];
-            healthUpdate = GameObject.FindGameObjectWithTag("healthu").GetComponent<Text>();
-            ammoUpdate = GameObject.FindGameObjectWithTag("ammou").GetComponent<Text>();
+           
             healthText.text = "Health: 200";
 
             ammoText.text = "Ammo: 50";
@@ -157,9 +142,11 @@ public class GameManager : MonoBehaviour
     public void GameOver()
     {
         gameOverUI.SetActive(true);
-        player.GetComponent<InputManager>().enabled = false;
+        player.GetComponent<InputManager>().OnDisable();
         //player.GetComponent<PlayerMovement>().enabled = false;
         gun.SetActive(false);
+        player.GetComponent<CapsuleCollider>().enabled = false;
+        
         
     }
 
