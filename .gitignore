@@ -9,6 +9,8 @@ GlobalGameJam2023/[Bb]uild/
 GlobalGameJam2023/[Bb]uilds/
 GlobalGameJam2023/[Ll]ogs/
 GlobalGameJam2023/[Mm]emoryCaptures/
+GlobalGameJam2023/[Pp]rojectSettings/
+
 
 # Asset meta data should only be ignored when the corresponding asset is also ignored
 !/[Aa]ssets/**/*.meta
