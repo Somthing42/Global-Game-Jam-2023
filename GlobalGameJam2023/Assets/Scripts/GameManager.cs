@@ -9,9 +9,9 @@ public class GameManager : MonoBehaviour
     public static GameManager instance;
 
     public int questsCompleated = 0;
-    [HideInInspector]
+    //[HideInInspector]
     public GameObject player;
-    [HideInInspector]
+    //[HideInInspector]
     public GameObject gun;
    // [HideInInspector]
     public GameObject gameOverUI;
@@ -27,11 +27,17 @@ public class GameManager : MonoBehaviour
     Color col;
     public float pickUpTimer1 = 3;
     public float pickUpTimer2 = 3;
-    bool gameStarted;
+  public  bool gameStarted;
 
     public Button selectButt;
 
     public Scene currentScene;
+
+    void Awake()
+    {
+        currentScene = SceneManager.GetActiveScene();
+
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -66,6 +72,7 @@ public class GameManager : MonoBehaviour
         {
 
             MainGameSetup();
+            gameStarted = false;
            
         }
 
@@ -77,15 +84,18 @@ public class GameManager : MonoBehaviour
                 Cursor.lockState = CursorLockMode.None;
             }
         }
+        else
+        {  
+            
+           gameOverUI = GameObject.FindGameObjectWithTag("GameOverUI");
+           
+        }
         if (!player)
         {
             gameStarted = true;
         }
 
-        if (!gameOverUI)
-        {
-            gameOverUI = GameObject.FindGameObjectWithTag("GameOverUI");
-        }
+       
 
     }
 
@@ -125,7 +135,12 @@ public class GameManager : MonoBehaviour
             player.GetComponent<InputManager>().OnEnable();
             gun = GameObject.FindGameObjectWithTag("Gun");
             gameOverUI = GameObject.FindGameObjectWithTag("GameOverUI");
-            gameOverUI.SetActive(false);
+            if(gameOverUI.activeInHierarchy == true)
+            {
+                gameOverUI.SetActive(false);
+            }
+               
+           
             healthText = player.GetComponent<Inventory>().UITexts[0];
             ammoText = player.GetComponent<Inventory>().UITexts[1];
             selectButt.Select();
@@ -142,7 +157,7 @@ public class GameManager : MonoBehaviour
 
             healthText.text = "Health: " + currenthealth;
             ammoText.text = "Ammo: " + currentammo;
-            gameStarted = false;
+           
 
         }
         if (SceneManager.GetActiveScene().name == "Ending")
@@ -155,6 +170,7 @@ public class GameManager : MonoBehaviour
            
 
         }
+        gameStarted = false;
 
     }
     public void UpdateHealth(float cHealth)
