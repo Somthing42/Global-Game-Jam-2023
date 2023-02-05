@@ -4562,7 +4562,7 @@ MonoBehaviour:
   theEndText: {fileID: 1096971248}
   creditsTimer: 8
   creditSpeed: 50
-  creditsStop: 44
+  creditsStop: 69
 --- !u!4 &365849713
 Transform:
   m_ObjectHideFlags: 0
@@ -14727,7 +14727,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 5, y: -2044}
+  m_AnchoredPosition: {x: 5, y: -3146}
   m_SizeDelta: {x: 485.4487, y: 147.61}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1096971250
@@ -17013,8 +17013,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 5, y: -1219.0876}
-  m_SizeDelta: {x: 653.3111, y: 1176.3754}
+  m_AnchoredPosition: {x: 5, y: -1806.2826}
+  m_SizeDelta: {x: 653.3111, y: 2350.7651}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1241596199
 MonoBehaviour:
@@ -26538,6 +26538,10 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 728944028}
+    - target: {fileID: 3286365060585816187, guid: 02691535ee43cf7498b72e2a76cf398c, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4039198340459895465, guid: 02691535ee43cf7498b72e2a76cf398c, type: 3}
       propertyPath: m_Mesh
       value: 
