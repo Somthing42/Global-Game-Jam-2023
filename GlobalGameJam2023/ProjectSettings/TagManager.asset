@@ -12,6 +12,7 @@ TagManager:
   - Sound
   - healthu
   - ammou
+  - Events
   layers:
   - Default
   - TransparentFX

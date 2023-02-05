@@ -60,7 +60,7 @@ public class InputManager : MonoBehaviour
         }
     }*/
 
-    private void OnEnable()
+    public void OnEnable()
     {
         controls.Enable();
     }

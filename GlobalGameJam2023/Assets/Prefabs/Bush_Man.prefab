@@ -6330,7 +6330,7 @@ MonoBehaviour:
   meleeDamage: 20
   sightRange: 50
   attackRange: 1
-  playerInSightRange: 1
+  playerInSightRange: 0
   playerInAttackRange: 0
   knockback: -500
 --- !u!54 &3771945239716382874

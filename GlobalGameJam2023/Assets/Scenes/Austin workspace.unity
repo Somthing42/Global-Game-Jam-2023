@@ -129,7 +129,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh19020
+  m_Name: pb_Mesh393580
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -327,14 +327,20 @@ MonoBehaviour:
   whatIsPlayer:
     serializedVersion: 2
     m_Bits: 256
+  walkPoint: {x: 0, y: 0, z: 0}
+  walkPointSet: 0
   walkPointRange: 5
+  walkSpeed: 0
   timeBetweenAttacks: 1
   projectile: {fileID: 3878922967521969012, guid: 761bd75b450970b4c9dc6c14ac05562b, type: 3}
   bulletSpawn: {fileID: 376645885}
+  attackType: 
+  meleeDamage: 0
   sightRange: 40
   attackRange: 30
   playerInSightRange: 0
   playerInAttackRange: 0
+  knockback: 0
 --- !u!195 &53223587
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -386,6 +392,9 @@ MonoBehaviour:
   currentHealth: 0
   isDead: 0
   hitEffect: {fileID: 100002, guid: 3b1513bcb86426b4795879be6a128ed7, type: 3}
+  hitSound: {fileID: 0}
+  deathSound: {fileID: 0}
+  knockbackForce: 0
 --- !u!4 &53223590
 Transform:
   m_ObjectHideFlags: 0
@@ -486,7 +495,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh19068
+  m_Name: pb_Mesh393634
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -844,7 +853,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh19426
+  m_Name: pb_Mesh394072
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -1008,7 +1017,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-387146
+  m_Name: pb_Mesh393520
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -1394,7 +1403,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-267984
+  m_Name: pb_Mesh394004
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -1573,6 +1582,9 @@ MonoBehaviour:
   currentHealth: 0
   isDead: 0
   hitEffect: {fileID: 100002, guid: ac1aa04288fad804ba1cd769f4377aaf, type: 3}
+  hitSound: {fileID: 0}
+  deathSound: {fileID: 0}
+  knockbackForce: 0
 --- !u!1 &245485950
 GameObject:
   m_ObjectHideFlags: 0
@@ -6791,6 +6803,9 @@ MonoBehaviour:
   currentHealth: 0
   isDead: 0
   hitEffect: {fileID: 100002, guid: ac1aa04288fad804ba1cd769f4377aaf, type: 3}
+  hitSound: {fileID: 0}
+  deathSound: {fileID: 0}
+  knockbackForce: 0
 --- !u!1001 &258184121
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6871,7 +6886,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-385128
+  m_Name: pb_Mesh394424
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -7050,6 +7065,9 @@ MonoBehaviour:
   currentHealth: 0
   isDead: 0
   hitEffect: {fileID: 100002, guid: ac1aa04288fad804ba1cd769f4377aaf, type: 3}
+  hitSound: {fileID: 0}
+  deathSound: {fileID: 0}
+  knockbackForce: 0
 --- !u!1001 &281321238
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7113,7 +7131,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-266450
+  m_Name: pb_Mesh393472
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -22492,6 +22510,9 @@ MonoBehaviour:
   isAmmo: 0
   healthAmount: 20
   ammoAmount: 0
+  pickupSound: {fileID: 0}
+  IntIncreaseText: {fileID: 0}
+  pickedUp: 0
 --- !u!54 &370701211
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -32850,7 +32871,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 26
+  m_RootOrder: 24
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &480483781
 GameObject:
@@ -33250,7 +33271,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-268696
+  m_Name: pb_Mesh393774
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -37760,7 +37781,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh19192
+  m_Name: pb_Mesh393786
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -40275,7 +40296,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-345886
+  m_Name: pb_Mesh394266
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -40439,7 +40460,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh19252
+  m_Name: pb_Mesh393858
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -40618,13 +40639,16 @@ MonoBehaviour:
   currentHealth: 0
   isDead: 0
   hitEffect: {fileID: 100002, guid: ac1aa04288fad804ba1cd769f4377aaf, type: 3}
+  hitSound: {fileID: 0}
+  deathSound: {fileID: 0}
+  knockbackForce: 0
 --- !u!43 &579972282
 Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-194714
+  m_Name: pb_Mesh393414
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -40803,6 +40827,9 @@ MonoBehaviour:
   currentHealth: 0
   isDead: 0
   hitEffect: {fileID: 100002, guid: ac1aa04288fad804ba1cd769f4377aaf, type: 3}
+  hitSound: {fileID: 0}
+  deathSound: {fileID: 0}
+  knockbackForce: 0
 --- !u!850595691 &607908129
 LightingSettings:
   m_ObjectHideFlags: 0
@@ -40885,6 +40912,9 @@ MonoBehaviour:
   currentHealth: 0
   isDead: 0
   hitEffect: {fileID: 100002, guid: ac1aa04288fad804ba1cd769f4377aaf, type: 3}
+  hitSound: {fileID: 0}
+  deathSound: {fileID: 0}
+  knockbackForce: 0
 --- !u!1 &632246249 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8378999174750202814, guid: bcdab8bedfec8254194ce9166aab6c60, type: 3}
@@ -40906,6 +40936,9 @@ MonoBehaviour:
   currentHealth: 0
   isDead: 0
   hitEffect: {fileID: 100002, guid: ac1aa04288fad804ba1cd769f4377aaf, type: 3}
+  hitSound: {fileID: 0}
+  deathSound: {fileID: 0}
+  knockbackForce: 0
 --- !u!1 &637617352 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8378999174750202814, guid: bcdab8bedfec8254194ce9166aab6c60, type: 3}
@@ -40927,13 +40960,16 @@ MonoBehaviour:
   currentHealth: 0
   isDead: 0
   hitEffect: {fileID: 100002, guid: ac1aa04288fad804ba1cd769f4377aaf, type: 3}
+  hitSound: {fileID: 0}
+  deathSound: {fileID: 0}
+  knockbackForce: 0
 --- !u!43 &645393996
 Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-272078
+  m_Name: pb_Mesh394052
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -41425,6 +41461,9 @@ MonoBehaviour:
   currentHealth: 0
   isDead: 0
   hitEffect: {fileID: 100002, guid: ac1aa04288fad804ba1cd769f4377aaf, type: 3}
+  hitSound: {fileID: 0}
+  deathSound: {fileID: 0}
+  knockbackForce: 0
 --- !u!1 &667594877
 GameObject:
   m_ObjectHideFlags: 0
@@ -46019,6 +46058,9 @@ MonoBehaviour:
   currentHealth: 0
   isDead: 0
   hitEffect: {fileID: 100002, guid: ac1aa04288fad804ba1cd769f4377aaf, type: 3}
+  hitSound: {fileID: 0}
+  deathSound: {fileID: 0}
+  knockbackForce: 0
 --- !u!1 &696638252
 GameObject:
   m_ObjectHideFlags: 0
@@ -46119,13 +46161,16 @@ MonoBehaviour:
   currentHealth: 0
   isDead: 0
   hitEffect: {fileID: 100002, guid: ac1aa04288fad804ba1cd769f4377aaf, type: 3}
+  hitSound: {fileID: 0}
+  deathSound: {fileID: 0}
+  knockbackForce: 0
 --- !u!43 &730904111
 Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-335944
+  m_Name: pb_Mesh394332
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -46602,7 +46647,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh19156
+  m_Name: pb_Mesh393736
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -47740,7 +47785,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-264614
+  m_Name: pb_Mesh394412
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -54424,6 +54469,9 @@ MonoBehaviour:
   currentHealth: 0
   isDead: 0
   hitEffect: {fileID: 100002, guid: ac1aa04288fad804ba1cd769f4377aaf, type: 3}
+  hitSound: {fileID: 0}
+  deathSound: {fileID: 0}
+  knockbackForce: 0
 --- !u!1001 &875437273
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -57049,6 +57097,9 @@ MonoBehaviour:
   currentHealth: 0
   isDead: 0
   hitEffect: {fileID: 100002, guid: ac1aa04288fad804ba1cd769f4377aaf, type: 3}
+  hitSound: {fileID: 0}
+  deathSound: {fileID: 0}
+  knockbackForce: 0
 --- !u!1 &984511029
 GameObject:
   m_ObjectHideFlags: 0
@@ -61724,7 +61775,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh19116
+  m_Name: pb_Mesh393696
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -62043,7 +62094,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh19630
+  m_Name: pb_Mesh394282
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -62238,6 +62289,9 @@ MonoBehaviour:
   isAmmo: 1
   healthAmount: 20
   ammoAmount: 5
+  pickupSound: {fileID: 0}
+  IntIncreaseText: {fileID: 0}
+  pickedUp: 0
 --- !u!54 &1087349386
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -63023,7 +63077,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 25
+  m_RootOrder: 23
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1105880375
 GameObject:
@@ -63396,7 +63450,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh19698
+  m_Name: pb_Mesh394362
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -63586,6 +63640,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PauseUI: {fileID: 553009268}
   isPaused: 0
+  pauseStart: {fileID: 0}
+  GoverStart: {fileID: 0}
 --- !u!4 &1184684753
 Transform:
   m_ObjectHideFlags: 0
@@ -63692,7 +63748,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-270834
+  m_Name: pb_Mesh393846
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -64081,6 +64137,9 @@ MonoBehaviour:
   currentHealth: 0
   isDead: 0
   hitEffect: {fileID: 100002, guid: 3b1513bcb86426b4795879be6a128ed7, type: 3}
+  hitSound: {fileID: 0}
+  deathSound: {fileID: 0}
+  knockbackForce: 0
 --- !u!114 &1253591947
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -64103,7 +64162,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-270322
+  m_Name: pb_Mesh393562
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -68558,6 +68617,9 @@ MonoBehaviour:
   currentHealth: 0
   isDead: 0
   hitEffect: {fileID: 100002, guid: ac1aa04288fad804ba1cd769f4377aaf, type: 3}
+  hitSound: {fileID: 0}
+  deathSound: {fileID: 0}
+  knockbackForce: 0
 --- !u!1 &1381982857
 GameObject:
   m_ObjectHideFlags: 0
@@ -68739,6 +68801,9 @@ MonoBehaviour:
   currentHealth: 0
   isDead: 0
   hitEffect: {fileID: 100002, guid: ac1aa04288fad804ba1cd769f4377aaf, type: 3}
+  hitSound: {fileID: 0}
+  deathSound: {fileID: 0}
+  knockbackForce: 0
 --- !u!1 &1405791912 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8378999174750202814, guid: bcdab8bedfec8254194ce9166aab6c60, type: 3}
@@ -68760,6 +68825,9 @@ MonoBehaviour:
   currentHealth: 0
   isDead: 0
   hitEffect: {fileID: 100002, guid: ac1aa04288fad804ba1cd769f4377aaf, type: 3}
+  hitSound: {fileID: 0}
+  deathSound: {fileID: 0}
+  knockbackForce: 0
 --- !u!1 &1408159850
 GameObject:
   m_ObjectHideFlags: 0
@@ -72982,6 +73050,9 @@ MonoBehaviour:
   currentHealth: 0
   isDead: 0
   hitEffect: {fileID: 100002, guid: ac1aa04288fad804ba1cd769f4377aaf, type: 3}
+  hitSound: {fileID: 0}
+  deathSound: {fileID: 0}
+  knockbackForce: 0
 --- !u!1 &1446752106 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8378999174750202814, guid: bcdab8bedfec8254194ce9166aab6c60, type: 3}
@@ -73003,6 +73074,9 @@ MonoBehaviour:
   currentHealth: 0
   isDead: 0
   hitEffect: {fileID: 100002, guid: ac1aa04288fad804ba1cd769f4377aaf, type: 3}
+  hitSound: {fileID: 0}
+  deathSound: {fileID: 0}
+  knockbackForce: 0
 --- !u!1 &1448501523
 GameObject:
   m_ObjectHideFlags: 0
@@ -73322,7 +73396,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh19212
+  m_Name: pb_Mesh393806
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -73486,7 +73560,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-271674
+  m_Name: pb_Mesh393654
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -73665,6 +73739,9 @@ MonoBehaviour:
   currentHealth: 0
   isDead: 0
   hitEffect: {fileID: 100002, guid: ac1aa04288fad804ba1cd769f4377aaf, type: 3}
+  hitSound: {fileID: 0}
+  deathSound: {fileID: 0}
+  knockbackForce: 0
 --- !u!1 &1489632654
 GameObject:
   m_ObjectHideFlags: 0
@@ -73804,7 +73881,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-258832
+  m_Name: pb_Mesh393508
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -76166,7 +76243,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh19714
+  m_Name: pb_Mesh394392
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -76795,7 +76872,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-9424
+  m_Name: pb_Mesh393444
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -76959,7 +77036,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh19454
+  m_Name: pb_Mesh394104
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -77138,13 +77215,16 @@ MonoBehaviour:
   currentHealth: 0
   isDead: 0
   hitEffect: {fileID: 100002, guid: ac1aa04288fad804ba1cd769f4377aaf, type: 3}
+  hitSound: {fileID: 0}
+  deathSound: {fileID: 0}
+  knockbackForce: 0
 --- !u!43 &1614561681
 Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh19144
+  m_Name: pb_Mesh393724
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -77616,6 +77696,9 @@ MonoBehaviour:
   currentHealth: 0
   isDead: 0
   hitEffect: {fileID: 100002, guid: ac1aa04288fad804ba1cd769f4377aaf, type: 3}
+  hitSound: {fileID: 0}
+  deathSound: {fileID: 0}
+  knockbackForce: 0
 --- !u!1 &1653995000
 GameObject:
   m_ObjectHideFlags: 0
@@ -77859,6 +77942,9 @@ MonoBehaviour:
   currentHealth: 0
   isDead: 0
   hitEffect: {fileID: 100002, guid: ac1aa04288fad804ba1cd769f4377aaf, type: 3}
+  hitSound: {fileID: 0}
+  deathSound: {fileID: 0}
+  knockbackForce: 0
 --- !u!1001 &1673605656
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -77939,7 +78025,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh19658
+  m_Name: pb_Mesh394310
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -78285,6 +78371,9 @@ MonoBehaviour:
   currentHealth: 0
   isDead: 0
   hitEffect: {fileID: 100002, guid: ac1aa04288fad804ba1cd769f4377aaf, type: 3}
+  hitSound: {fileID: 0}
+  deathSound: {fileID: 0}
+  knockbackForce: 0
 --- !u!1001 &1791117749
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -78439,7 +78528,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-267524
+  m_Name: pb_Mesh394376
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -78692,6 +78781,9 @@ MonoBehaviour:
   currentHealth: 0
   isDead: 0
   hitEffect: {fileID: 100002, guid: ac1aa04288fad804ba1cd769f4377aaf, type: 3}
+  hitSound: {fileID: 0}
+  deathSound: {fileID: 0}
+  knockbackForce: 0
 --- !u!1 &1848787753 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8378999174750202814, guid: bcdab8bedfec8254194ce9166aab6c60, type: 3}
@@ -78713,6 +78805,9 @@ MonoBehaviour:
   currentHealth: 0
   isDead: 0
   hitEffect: {fileID: 100002, guid: ac1aa04288fad804ba1cd769f4377aaf, type: 3}
+  hitSound: {fileID: 0}
+  deathSound: {fileID: 0}
+  knockbackForce: 0
 --- !u!1 &1862623776
 GameObject:
   m_ObjectHideFlags: 0
@@ -78867,6 +78962,9 @@ MonoBehaviour:
   currentHealth: 0
   isDead: 0
   hitEffect: {fileID: 100002, guid: ac1aa04288fad804ba1cd769f4377aaf, type: 3}
+  hitSound: {fileID: 0}
+  deathSound: {fileID: 0}
+  knockbackForce: 0
 --- !u!1 &1881798861
 GameObject:
   m_ObjectHideFlags: 0
@@ -80611,6 +80709,9 @@ MonoBehaviour:
   currentHealth: 0
   isDead: 0
   hitEffect: {fileID: 100002, guid: ac1aa04288fad804ba1cd769f4377aaf, type: 3}
+  hitSound: {fileID: 0}
+  deathSound: {fileID: 0}
+  knockbackForce: 0
 --- !u!1001 &1955332567
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -82278,7 +82379,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh18994
+  m_Name: pb_Mesh393540
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -83830,7 +83931,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh19088
+  m_Name: pb_Mesh393666
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -84381,7 +84482,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-386814
+  m_Name: pb_Mesh393920
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -94025,7 +94126,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 24
+  m_RootOrder: 22
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2126969878 stripped
 GameObject:
@@ -94048,6 +94149,9 @@ MonoBehaviour:
   currentHealth: 0
   isDead: 0
   hitEffect: {fileID: 100002, guid: ac1aa04288fad804ba1cd769f4377aaf, type: 3}
+  hitSound: {fileID: 0}
+  deathSound: {fileID: 0}
+  knockbackForce: 0
 --- !u!1 &2134343569 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8378999174750202814, guid: bcdab8bedfec8254194ce9166aab6c60, type: 3}
@@ -94069,6 +94173,9 @@ MonoBehaviour:
   currentHealth: 0
   isDead: 0
   hitEffect: {fileID: 100002, guid: ac1aa04288fad804ba1cd769f4377aaf, type: 3}
+  hitSound: {fileID: 0}
+  deathSound: {fileID: 0}
+  knockbackForce: 0
 --- !u!4 &543450652286571923
 Transform:
   m_ObjectHideFlags: 0

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 public class PauseMenu : MonoBehaviour
 {
     PlayerControls controls;
@@ -11,10 +12,26 @@ public class PauseMenu : MonoBehaviour
     [SerializeField] private GameObject PauseUI;
     [SerializeField] private bool isPaused;
 
+    public Button pauseStart;
+    public Button GoverStart;
+
     // Start is called before the first frame update
     void Awake()
     {
         controls = new PlayerControls();
+       
+    }
+    private void Start()
+    {
+        if(GameManager.instance.currentScene.name != "Ending")
+        {
+            GameManager.instance.selectButt = GoverStart;
+        }
+        else
+        {
+            GameManager.instance.selectButt = pauseStart;
+        }
+        
     }
 
     // Update is called once per frame
@@ -27,7 +44,7 @@ public class PauseMenu : MonoBehaviour
     {
         menu = controls.PauseMenu.Pause;
         menu.Enable();
-
+       
         menu.performed += Pause;
     }
 
@@ -58,7 +75,12 @@ public class PauseMenu : MonoBehaviour
         AudioListener.pause = true;
         PauseUI.SetActive(true);
         Cursor.lockState = CursorLockMode.None;
-        GameObject.FindGameObjectWithTag("Player").GetComponent<InputManager>().enabled = false;
+        GameManager.instance.selectButt = pauseStart;
+        GameManager.instance.ButtSelect();
+        if (GameManager.instance.currentScene.name != "Ending")
+        {
+            GameObject.FindGameObjectWithTag("Player").GetComponent<InputManager>().enabled = false;
+        }
     }
 
     public void DeactivateMenu()
@@ -68,6 +90,12 @@ public class PauseMenu : MonoBehaviour
         PauseUI.SetActive(false);
         isPaused = false;
         Cursor.lockState = CursorLockMode.Locked;
-        GameObject.FindGameObjectWithTag("Player").GetComponent<InputManager>().enabled = true;
+        if(GameManager.instance.currentScene.name != "Ending")
+        {
+            GameManager.instance.selectButt = GoverStart;
+            GameManager.instance.ButtSelect();
+            GameObject.FindGameObjectWithTag("Player").GetComponent<InputManager>().enabled = true;
+        }
+        
     }
 }

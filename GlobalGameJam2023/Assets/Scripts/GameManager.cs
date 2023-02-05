@@ -29,7 +29,9 @@ public class GameManager : MonoBehaviour
     public float pickUpTimer2 = 3;
     bool gameStarted;
 
-   
+    public Button selectButt;
+
+    public Scene currentScene;
 
     // Start is called before the first frame update
     void Start()
@@ -49,6 +51,7 @@ public class GameManager : MonoBehaviour
         if(SceneManager.GetActiveScene().name == "Main")
         {
             gameStarted = true;
+
         }
         
     }
@@ -56,6 +59,7 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        currentScene = SceneManager.GetActiveScene();
         if (gameStarted)
         {
 
@@ -104,17 +108,20 @@ public class GameManager : MonoBehaviour
     public void MainGameSetup()
     {
         
-        if (SceneManager.GetActiveScene().name != "Menu")
+        if (SceneManager.GetActiveScene().name != "Menu" && SceneManager.GetActiveScene().name != "Ending")
         {
-           // Debug.Log("working!");
+            
+            Debug.Log(SceneManager.GetActiveScene().name);
             Cursor.visible = false;
             Cursor.lockState = CursorLockMode.Locked;
             player = GameObject.FindGameObjectWithTag("Player");
+            player.GetComponent<InputManager>().OnEnable();
             gun = GameObject.FindGameObjectWithTag("Gun");
             gameOverUI = GameObject.FindGameObjectWithTag("GameOverUI");
             gameOverUI.SetActive(false);
             healthText = player.GetComponent<Inventory>().UITexts[0];
             ammoText = player.GetComponent<Inventory>().UITexts[1];
+            selectButt.Select();
 
             if (SceneManager.GetActiveScene().name == "Main")
             {
@@ -129,6 +136,7 @@ public class GameManager : MonoBehaviour
             gameStarted = false;
 
         }
+        
     }
 
 
@@ -155,9 +163,11 @@ public class GameManager : MonoBehaviour
         player.GetComponent<InputManager>().OnDisable();
         //player.GetComponent<PlayerMovement>().enabled = false;
         gun.SetActive(false);
-        player.GetComponent<CapsuleCollider>().enabled = false;
+        player.GetComponent<BoxCollider>().enabled = false;
+        Cursor.lockState = CursorLockMode.None;
         
-        
+
+
     }
 
     public void RestartGame()
@@ -169,6 +179,11 @@ public class GameManager : MonoBehaviour
     public void MainMenu()
     {
         SceneManager.LoadScene("Menu");
+    }
+
+    public void ButtSelect()
+    {
+        selectButt.Select();
     }
 }
 

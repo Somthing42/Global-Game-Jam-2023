@@ -12,11 +12,12 @@ public class EnemyAI : MonoBehaviour
     public LayerMask whatIsGround, whatIsPlayer;
 
     //patroling
-    Vector3 walkPoint;
-    bool walkPointSet;
+   public Vector3 walkPoint;
+    public bool walkPointSet;
     public float walkPointRange;
     public float walkSpeed;
 
+    float walkReset = 2;
     //attacking
     public float timeBetweenAttacks;
     bool alreadyAttacked;
@@ -54,33 +55,40 @@ public class EnemyAI : MonoBehaviour
 
     private void Patroling()
     {
-        if (!walkPointSet) SearchWalkPoint();
+        
+        if (!walkPointSet || walkReset <= 0) SearchWalkPoint();
 
         if (walkPointSet)
         {
             agent.SetDestination(walkPoint);
+            walkReset -= Time.deltaTime;
 
         }
         //calculate distance to walk point
         Vector3 distanceToWalkPoint = transform.position - walkPoint;
 
         //walk point reached
-        if (distanceToWalkPoint.magnitude < 1f)
+        if (distanceToWalkPoint.magnitude <= 2f)
         {
             walkPointSet = false;
         }
     }
     private void SearchWalkPoint()
     {
+       
         //calculate random point in range
         float randomZ = Random.Range(-walkPointRange, walkPointRange);
         float randomX = Random.Range(-walkPointRange, walkPointRange);
+        float randomY = Random.Range(-walkPointRange, walkPointRange);
 
-        walkPoint = new Vector3(transform.position.x + randomX, transform.position.y, transform.position.z + randomZ);
+        walkPoint = new Vector3(transform.position.x + randomX, transform.position.y + randomY, transform.position.z + randomZ);
 
-        if (Physics.Raycast(walkPoint, -transform.up, 2f, whatIsGround))
+        
+        if (Physics.Raycast(walkPoint, -transform.up, 2f ) || walkReset <= 0)
         {
+            //Debug.Log("patrolling");
             walkPointSet = true;
+            walkReset = 2;
         }
     }
 
