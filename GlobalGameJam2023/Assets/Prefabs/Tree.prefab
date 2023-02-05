@@ -2031,6 +2031,7 @@ GameObject:
   m_Component:
   - component: {fileID: 516461364339661472}
   - component: {fileID: 3349673708107575531}
+  - component: {fileID: 6791940777503748694}
   - component: {fileID: 6587311396288899215}
   - component: {fileID: 1579684168984195295}
   - component: {fileID: 3286365060585816187}
@@ -2071,6 +2072,25 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 6, y: 7, z: 6}
   m_Center: {x: 0, y: 2, z: 0}
+--- !u!114 &6791940777503748694
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 516461364339661478}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae455900f35c942479ede7ed3059829a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 200
+  currentHealth: 0
+  isDead: 0
+  hitEffect: {fileID: 100002, guid: ac1aa04288fad804ba1cd769f4377aaf, type: 3}
+  hitSound: {fileID: 8300000, guid: f7034a10561b39b48b6049e25392fc34, type: 3}
+  deathSound: {fileID: 8300000, guid: 5f9b34034b5512f4e9ac48c021031eb8, type: 3}
+  knockbackForce: 0
 --- !u!195 &6587311396288899215
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -2235,6 +2255,8 @@ GameObject:
   - component: {fileID: 516461364340062427}
   - component: {fileID: 516461364340062426}
   - component: {fileID: 516461364340062425}
+  - component: {fileID: 6333931652836904040}
+  - component: {fileID: 1860538565444420200}
   m_Layer: 0
   m_Name: Bush_Body
   m_TagString: Untagged
@@ -4473,6 +4495,44 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 516461364340062431}
   m_Mesh: {fileID: 0}
+--- !u!114 &6333931652836904040
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 516461364340062431}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae455900f35c942479ede7ed3059829a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
+  currentHealth: 0
+  isDead: 0
+  hitEffect: {fileID: 0}
+  hitSound: {fileID: 0}
+  deathSound: {fileID: 0}
+  knockbackForce: 0
+--- !u!114 &1860538565444420200
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 516461364340062431}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae455900f35c942479ede7ed3059829a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 200
+  currentHealth: 0
+  isDead: 0
+  hitEffect: {fileID: 100002, guid: ac1aa04288fad804ba1cd769f4377aaf, type: 3}
+  hitSound: {fileID: 8300000, guid: f7034a10561b39b48b6049e25392fc34, type: 3}
+  deathSound: {fileID: 8300000, guid: 5f9b34034b5512f4e9ac48c021031eb8, type: 3}
+  knockbackForce: 0
 --- !u!1 &516461364560532378
 GameObject:
   m_ObjectHideFlags: 0
