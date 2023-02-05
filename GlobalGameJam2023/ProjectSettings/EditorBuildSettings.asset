@@ -12,6 +12,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Main.unity
     guid: 44cd789818f779f49bdd6b6cebab164f
   - enabled: 1
+    path: Assets/Scenes/Austin workspace.unity
+    guid: bc9b85f51be8998439b9bb326dd98b78
+  - enabled: 1
     path: Assets/Scenes/Ending.unity
     guid: ff3da745e8f95464d83effbfd7725d4d
   m_configObjects: {}

@@ -9,19 +9,20 @@ public class GameManager : MonoBehaviour
     public static GameManager instance;
 
     public int questsCompleated = 0;
-   // [HideInInspector]
+    [HideInInspector]
     public GameObject player;
-    //[HideInInspector]
+    [HideInInspector]
     public GameObject gun;
+   // [HideInInspector]
     public GameObject gameOverUI;
-    //[HideInInspector]
+   // [HideInInspector]
     public Text healthText;
    // [HideInInspector]
     public Text ammoText;
 
-   // public Text healthUpdate;
+    public float  currenthealth;
 
-   // public Text ammoUpdate;
+    public float currentammo;
 
     Color col;
     public float pickUpTimer1 = 3;
@@ -95,9 +96,9 @@ public class GameManager : MonoBehaviour
         gameStarted = true;
     }
 
-    public void Level2()
+    public void NextLevel()
     {
-        SceneManager.LoadScene(2);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
     public void MainGameSetup()
@@ -114,10 +115,17 @@ public class GameManager : MonoBehaviour
             gameOverUI.SetActive(false);
             healthText = player.GetComponent<Inventory>().UITexts[0];
             ammoText = player.GetComponent<Inventory>().UITexts[1];
-           
-            healthText.text = "Health: 200";
 
-            ammoText.text = "Ammo: 50";
+            if (SceneManager.GetActiveScene().name == "Main")
+            {
+                currenthealth = 200;
+                currentammo = 50;
+            }
+            
+                
+
+            healthText.text = "Health: " + currenthealth;
+            ammoText.text = "Ammo: " + currentammo;
             gameStarted = false;
 
         }
@@ -127,6 +135,7 @@ public class GameManager : MonoBehaviour
     public void UpdateHealth(float cHealth)
     {
         healthText.text = "Health: " + cHealth;
+        currenthealth = cHealth;
       //  healthUpdate.enabled = true;
 //healthUpdate.text = "+ " + cHealth;
         
@@ -135,6 +144,7 @@ public class GameManager : MonoBehaviour
     public void UpdateAmmo(float cAmmo)
     {
         ammoText.text = "Ammo: " + cAmmo;
+        currentammo = cAmmo;
        // ammoUpdate.enabled = true;
        // ammoUpdate.text = "+ " + 5;
     }

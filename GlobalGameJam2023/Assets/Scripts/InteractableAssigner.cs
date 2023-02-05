@@ -42,6 +42,10 @@ public class InteractableAssigner : MonoBehaviour
         {
             GameManager.instance.GameEnd();
         }
+        if(interactableType == "Next")
+        {
+            GameManager.instance.NextLevel();
+        }
 
     }
 

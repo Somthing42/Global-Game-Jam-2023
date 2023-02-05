@@ -10,5 +10,13 @@ public class Inventory : MonoBehaviour
 
     public List<string> items;
 
-    
+    private void Start()
+    {
+        UITexts[0] = GameObject.FindGameObjectWithTag("HealthText").GetComponent<Text>();
+        UITexts[1] = GameObject.FindGameObjectWithTag("AmmoText").GetComponent<Text>();
+    }
+
+
 }
+
+

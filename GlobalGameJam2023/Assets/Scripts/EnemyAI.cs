@@ -15,6 +15,7 @@ public class EnemyAI : MonoBehaviour
     Vector3 walkPoint;
     bool walkPointSet;
     public float walkPointRange;
+    public float walkSpeed;
 
     //attacking
     public float timeBetweenAttacks;
@@ -86,6 +87,7 @@ public class EnemyAI : MonoBehaviour
 
     private void ChasePlayer()
     {
+        agent.speed = walkSpeed;
         agent.SetDestination(player.position);
     }
 
@@ -134,11 +136,11 @@ public class EnemyAI : MonoBehaviour
             //Debug.Log("i see the player");
 
             collision.gameObject.GetComponent<Damageable>().TakeDamage(meleeDamage, collision.gameObject.transform.position, collision.gameObject.transform.position);
-
+            gameObject.transform.position += transform.forward * Time.deltaTime * knockback;
         }
 
 
-        gameObject.transform.position += transform.forward * Time.deltaTime * knockback;
+       
 
     }
 }

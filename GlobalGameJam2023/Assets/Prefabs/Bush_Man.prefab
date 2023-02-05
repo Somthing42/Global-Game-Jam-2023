@@ -6258,7 +6258,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 3, y: 2.5, z: 3}
+  m_Size: {x: 4, y: 2.5, z: 4}
   m_Center: {x: 0, y: -0.6, z: 0}
 --- !u!114 &3771945239716382873
 MonoBehaviour:
@@ -6276,7 +6276,9 @@ MonoBehaviour:
   currentHealth: 0
   isDead: 0
   hitEffect: {fileID: 100002, guid: ac1aa04288fad804ba1cd769f4377aaf, type: 3}
-  knockbackForce: -250
+  hitSound: {fileID: 0}
+  deathSound: {fileID: 0}
+  knockbackForce: -10
 --- !u!195 &3771945239716382872
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -6320,12 +6322,13 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   walkPointRange: 2
+  walkSpeed: 20
   timeBetweenAttacks: 0
   projectile: {fileID: 0}
   bulletSpawn: {fileID: 0}
   attackType: 
-  meleeDamage: 10
-  sightRange: 30
+  meleeDamage: 20
+  sightRange: 50
   attackRange: 1
   playerInSightRange: 1
   playerInAttackRange: 0
