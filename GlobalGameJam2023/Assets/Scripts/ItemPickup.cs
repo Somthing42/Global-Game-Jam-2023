@@ -59,6 +59,7 @@ public class ItemPickup : MonoBehaviour
                     
                     Destroy(gameObject);
                 }
+                Destroy(gameObject);
             }
             if (isAmmo)
             {
@@ -76,6 +77,7 @@ public class ItemPickup : MonoBehaviour
 
                     Destroy(gameObject);
                 }
+                Destroy(gameObject);
             }
         }
     }

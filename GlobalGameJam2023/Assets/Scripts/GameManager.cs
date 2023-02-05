@@ -48,12 +48,14 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
         }
          
-        if(SceneManager.GetActiveScene().name == "Main")
+        if(SceneManager.GetActiveScene().name != "Menu" && SceneManager.GetActiveScene().name != "Ending")
         {
+            //Debug.Log("Starting!");
             gameStarted = true;
 
         }
-        
+        currentScene = SceneManager.GetActiveScene();
+
     }
 
     // Update is called once per frame
@@ -80,7 +82,10 @@ public class GameManager : MonoBehaviour
             gameStarted = true;
         }
 
-
+        if (!gameOverUI)
+        {
+            gameOverUI = GameObject.FindGameObjectWithTag("GameOverUI");
+        }
 
     }
 
@@ -92,6 +97,7 @@ public class GameManager : MonoBehaviour
     public void GameEnd()
     {
         SceneManager.LoadScene("Ending");
+        gameStarted = true;
     }
 
     public void StartGame()
@@ -103,14 +109,15 @@ public class GameManager : MonoBehaviour
     public void NextLevel()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        gameStarted = true;
     }
 
     public void MainGameSetup()
     {
-        
+
         if (SceneManager.GetActiveScene().name != "Menu" && SceneManager.GetActiveScene().name != "Ending")
         {
-            
+
             Debug.Log(SceneManager.GetActiveScene().name);
             Cursor.visible = false;
             Cursor.lockState = CursorLockMode.Locked;
@@ -125,21 +132,31 @@ public class GameManager : MonoBehaviour
 
             if (SceneManager.GetActiveScene().name == "Main")
             {
+
                 currenthealth = 200;
                 currentammo = 50;
+
             }
-            
-                
+
+
 
             healthText.text = "Health: " + currenthealth;
             ammoText.text = "Ammo: " + currentammo;
             gameStarted = false;
 
         }
-        
+        if (SceneManager.GetActiveScene().name == "Ending")
+        {
+            if (!gameOverUI)
+            {
+                gameOverUI = GameObject.FindGameObjectWithTag("GameOverUI");
+                gameOverUI.SetActive(false);
+            }
+           
+
+        }
+
     }
-
-
     public void UpdateHealth(float cHealth)
     {
         healthText.text = "Health: " + cHealth;

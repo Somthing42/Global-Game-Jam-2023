@@ -23,13 +23,16 @@ public class PauseMenu : MonoBehaviour
     }
     private void Start()
     {
-        if(GameManager.instance.currentScene.name != "Ending")
+        if (GameManager.instance.currentScene != null)
         {
-            GameManager.instance.selectButt = GoverStart;
-        }
-        else
-        {
-            GameManager.instance.selectButt = pauseStart;
+            if (GameManager.instance.currentScene.name != "Ending")
+            {
+                GameManager.instance.selectButt = GoverStart;
+            }
+            else
+            {
+                GameManager.instance.selectButt = pauseStart;
+            }
         }
         
     }
